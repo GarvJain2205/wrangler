@@ -140,7 +140,7 @@ numberRange
  ;
 
 value
- : String | Number | Column | Bool
+ : String | Number | Column | Bool | BYTE_SIZE | TIME_DURATION
  ;
 
 ecommand
@@ -194,8 +194,7 @@ stringList
 identifierList
  : Identifier (',' Identifier)*
  ;
-
-
+ 
 /*
  * Following are the Lexer Rules used for tokenizing the recipe.
  */
@@ -247,6 +246,17 @@ BackSlash: '\\';
 Dollar   : '$';
 Tilde    : '~';
 
+/*
+ * Lexer Rules for Byte Size (e.g., 10KB, 1.5MB) and Time Duration (e.g., 100ms, 2s).
+ * Supported Units:
+ *   - Byte: B, KB, MB, GB, TB
+ *   - Time: ns, ms, s, m, h, d
+ */
+fragment BYTE_UNIT  : 'B' | 'KB' | 'MB' | 'GB' | 'TB';
+fragment TIME_UNIT  : 'ns' | 'ms' | 's' | 'm' | 'h' | 'd';
+
+BYTE_SIZE       : [0-9]+ ('.' [0-9]+)? BYTE_UNIT;
+TIME_DURATION   : [0-9]+ ('.' [0-9]+)? TIME_UNIT;
 
 Bool
  : 'true'

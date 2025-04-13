@@ -18,9 +18,29 @@ are manually created.
   * The Data Prep Transform is [separately documented](wrangler-transform/wrangler-docs/data-prep-transform.md).
   * [Data Prep Cheatsheet](wrangler-docs/cheatsheet.md)
 
-## New Features
+## 🚀 New Features
 
-More [here](wrangler-docs/upcoming-features.md) on upcoming features.
+**More [here](#) on upcoming features.**
+
+### 📏 ByteSize and ⏱️ TimeDuration Units Parsers
+
+The library now has **built-in support** for parsing values with:
+
+- **Byte size units**: `KB`, `MB`, `GB`, etc.
+- **Time duration units**: `ms`, `s`, `m`, `h`, `d`
+
+#### ✅ ByteSize Parser:
+- Recognizes values like: `10KB`, `1.5MB`, `2GB`
+
+#### ✅ TimeDuration Parser:
+- Recognizes values like: `5ms`, `2.1s`, `5m`, `1h`, `2d`
+
+These units can be used directly in directives and are automatically parsed and converted.
+
+#### 🧮 Example using the `aggregate-stats` directive:
+```bash
+aggregate-stats :data_transfer_size :response_time :total_size_mb :total_time_sec
+
 
   * **User Defined Directives, also known as UDD**, allow you to create custom functions to transform records within CDAP DataPrep or a.k.a Wrangler. CDAP comes with a comprehensive library of functions. There are however some omissions, and some specific cases for which UDDs are the solution. Additional information on how you can build your custom directives [here](wrangler-docs/custom-directive.md).
     * Migrating directives from version 1.0 to version 2.0 [here](wrangler-docs/directive-migration.md)

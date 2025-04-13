@@ -41,6 +41,15 @@ These units can be used directly in directives and are automatically parsed and 
 ```bash
 aggregate-stats :data_transfer_size :response_time :total_size_mb :total_time_sec
 
+## 🧪 Running Tests for ByteSize and TimeDuration Units Parsers
+
+To run the tests for the ByteSize and TimeDuration Units Parsers, follow these steps:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/data-integrations/wrangler.git
+   cd wrangler
 
   * **User Defined Directives, also known as UDD**, allow you to create custom functions to transform records within CDAP DataPrep or a.k.a Wrangler. CDAP comes with a comprehensive library of functions. There are however some omissions, and some specific cases for which UDDs are the solution. Additional information on how you can build your custom directives [here](wrangler-docs/custom-directive.md).
     * Migrating directives from version 1.0 to version 2.0 [here](wrangler-docs/directive-migration.md)
